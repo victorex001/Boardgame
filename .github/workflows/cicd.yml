@@ -37,7 +37,11 @@ jobs:
         SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}
 
     - name: Install jq
-      run: sudo apt-get update && sudo apt-get install -y jq
+      run: |
+        sudo rm /etc/apt/sources.list.d/trivy.list*
+        sudo apt-get update
+        sudo apt-get install -y jq
+
 
   # Check the Quality Gate status.
     - name: SonarQube Quality Gate check
