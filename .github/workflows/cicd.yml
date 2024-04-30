@@ -57,7 +57,7 @@ jobs:
 
     - name: Build Docker Image
       run: |
-        docker build -t victorex001/boardgame:latest .
+        sudo docker build -t victorex001/boardgame:latest .
 
     - name: Trivy Image Scan
       run: |
