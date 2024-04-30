@@ -68,6 +68,9 @@ jobs:
 
     - name: Trivy Image Scan
       run: |
+        # Ensure Docker socket permissions are correct
+        sudo chmod 666 /var/run/docker.sock
+        # Perform Trivy image scan
         trivy image --format table -o trivy-image-report.html victorex001/board:latest
 
     - name: Login to Docker Hub
